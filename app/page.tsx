@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 
-const skills = ['Front-end', 'Back-end', 'Design', 'DevOps'];
-
 // NAVIGATION BAR
 const Nav = ({ dark, setDark }: any) => {
   const toggleDarkMode = () => {
