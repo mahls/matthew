@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 
-let skills = ['Front-end', 'Back-end', 'Design', 'DevOps'];
+const skills = ['Front-end', 'Back-end', 'Design', 'DevOps'];
 
 // NAVIGATION BAR
 const Nav = ({ dark, setDark }: any) => {
@@ -82,7 +82,7 @@ const projects = [
 ];
 
 // Card Component
-const Card = ({ title, info, dark, color }: { title: string; info: string; dark: boolean; color: string; }) => {
+const Card = ({ title, color }: { title: string; info: string; dark: boolean; color: string; }) => {
   return (
     <div>
     <h3 className={`${color}  px-5  text-6xl md:text-8xl font-bold`}>{title}</h3>
