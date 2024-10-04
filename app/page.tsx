@@ -9,7 +9,7 @@ import { useState } from "react";
 let skills = ['Front-end', 'Back-end', 'Design', 'DevOps'];
 
 // NAVIGATION BAR
-let Nav = ({ dark, setDark }: any) => {
+const Nav = ({ dark, setDark }: any) => {
   const toggleDarkMode = () => {
     setDark(prev => !prev);
   };
@@ -52,7 +52,7 @@ let Nav = ({ dark, setDark }: any) => {
 }
 
 // HERO SECTION
-let Hero = ({ dark }: any) => {
+const Hero = ({ dark }: any) => {
   return (
     <motion.div 
       className={`flex flex-col justify-center items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-200' : 'text-stone-700'}`}
@@ -74,7 +74,7 @@ let Hero = ({ dark }: any) => {
 }
 
 // Project data
-let projects = [
+const projects = [
   { title: 'Hiragana 🌸', info: 'Learn Japanese Hiragana', color: 'text-violet-700' },
   { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-violet-400' },
   { title: 'Farming 🌿', info: 'Grow crops', color: 'text-violet-500' },
@@ -82,7 +82,7 @@ let projects = [
 ];
 
 // Card Component
-let Card = ({ title, info, dark, color }: { title: string; info: string; dark: boolean; color: string; }) => {
+const Card = ({ title, info, dark, color }: { title: string; info: string; dark: boolean; color: string; }) => {
   return (
     <div>
     <h3 className={`${color}  px-5  text-6xl md:text-8xl font-bold`}>{title}</h3>
@@ -91,7 +91,7 @@ let Card = ({ title, info, dark, color }: { title: string; info: string; dark: b
 }
 
 // Projects Component
-let Projects = ({ dark }: { dark: boolean }) => {
+const Projects = ({ dark }: { dark: boolean }) => {
   return (
     <div className="flex flex-wrap justify-center pt-10">
       <div>
@@ -111,7 +111,7 @@ import { FaReact } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 
 //Footer Component
-let Footer = () => {
+const Footer = () => {
     return (
       <div className="flex text-6xl  text-stone-800 justify-center mt-10">
       <GrDocker/>
