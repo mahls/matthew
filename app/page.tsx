@@ -1,101 +1,144 @@
-import Image from "next/image";
+"use client";  // This ensures the component is rendered on the client side
 
-export default function Home() {
+import { RxMoon, RxSun } from "react-icons/rx";
+import { VscGithub } from "react-icons/vsc";
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+
+let skills = ['Front-end', 'Back-end', 'Design', 'DevOps'];
+
+// NAVIGATION BAR
+let Nav = ({ dark, setDark }: any) => {
+  const toggleDarkMode = () => {
+    setDark(prev => !prev);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-1"></div>
+      <motion.div 
+        className={`px-4 sm:px-6 py-4 m-2 flex justify-between isolate ${dark ? 'border-gray-700 bg-gradient-to-b from-stone-950 to-[#141414] text-stone-200' : 'text-stone-700'}`}
+        initial={{ opacity: 0, y: -20 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 1 }}
+      >
+        <div className="text-2xl tracking-wider font-serif">Matthew Holmes</div>
+        
+        <div className="flex">
+          <motion.div 
+            className="mx-4 cursor-effect" 
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <VscGithub className={`cursor-pointer ${dark ? 'text-white' : 'text-gray-800'}`} />
+          </motion.div>
+          <motion.div 
+            className="cursor-effect" 
+            whileHover={{ scale: 1.2 }} 
+            transition={{ type: "spring", stiffness: 300 }}
+            onClick={toggleDarkMode}
           >
-            Read our docs
-          </a>
+            {dark ? (
+              <RxSun className="cursor-pointer text-pink-400" />
+            ) : (
+              <RxMoon className="cursor-pointer text-gray-800" />
+            )}
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </motion.div>
+    </>
+  );
+}
+
+// HERO SECTION
+let Hero = ({ dark }: any) => {
+  return (
+    <motion.div 
+      className={`flex flex-col justify-center items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-200' : 'text-stone-700'}`}
+      initial={{ opacity: 0, scale: 0.8 }} 
+      animate={{ opacity: 1, scale: 1 }} 
+      transition={{ duration: 0.5 }}
+    >
+      <div className="sm:flex">
+        <div className="font-serif drop-shadow-lg text-wrap px-4">Full Stack | Design</div>
+        <div className="hidden sm:flex font-serif drop-shadow-lg"> | </div>
+        <div className="font-serif drop-shadow-lg text-wrap px-4">DevOps | Statistics</div>
+      </div>
+
+      <div className="font-serif mt-5 text-sm px-4 sm:px-12 md:px-56 align-center">
+        I’m Matthew Holmes, a passionate Full Stack Developer with a strong foundation in both front-end and back-end technologies. With expertise in DevOps practices, I ensure smooth deployment and efficient application management. My design skills allow me to create intuitive and visually appealing user interfaces, while my background in statistics empowers me to leverage data-driven insights. Explore my work and discover how I can bring your ideas to life!
+      </div>
+    </motion.div>
+  );
+}
+
+// Project data
+let projects = [
+  { title: 'Hiragana 🌸', info: 'Learn Japanese Hiragana', color: 'text-violet-700' },
+  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-violet-400' },
+  { title: 'Farming 🌿', info: 'Grow crops', color: 'text-violet-500' },
+  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-violet-700' },
+];
+
+// Card Component
+let Card = ({ title, info, dark, color }: { title: string; info: string; dark: boolean; color: string; }) => {
+  return (
+    <div>
+    <h3 className={`${color}  px-5  text-6xl md:text-8xl font-bold`}>{title}</h3>
     </div>
+  );
+}
+
+// Projects Component
+let Projects = ({ dark }: { dark: boolean }) => {
+  return (
+    <div className="flex flex-wrap justify-center pt-10">
+      <div>
+      {projects.map(project => (
+        <Card key={project.title} title={project.title} info={project.info} dark={dark} color={project.color} />
+      ))}
+      </div>
+    </div>
+  );
+}
+
+import { GrDocker } from "react-icons/gr";
+import { TbBrandAnsible } from "react-icons/tb";
+import { FaAws } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
+
+//Footer Component
+let Footer = () => {
+    return (
+      <div className="flex text-6xl  text-stone-800 justify-center mt-10">
+      <GrDocker/>
+      <TbBrandAnsible/>
+      <FaAws/>
+      <FaPython/>
+      <FaReact/>
+      <SiTypescript className="pl-1"/>
+      </div>
+    ) 
+}
+
+// MAIN / APP
+export default function Home() {
+  const [dark, setDark] = useState(false);  // Initialize state to false for light mode
+
+  return (
+    <motion.div 
+      className={`${dark ? 'bg-[#141414]' : 'bg-white'} transition-all duration-300 h-screen`}
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 1 }}
+    >
+      <Nav dark={dark} setDark={setDark} />
+      <Hero dark={dark} />
+      <Projects dark={dark} />
+      <Footer/>
+    </motion.div>
   );
 }
