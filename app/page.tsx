@@ -124,7 +124,7 @@ const Projects = ({ dark }: { dark: boolean }) => {
 // Footer Component
 const Footer = () => {
   return (
-    <div className="flex text-6xl text-stone-800 justify-center mt-10">
+    <div className="flex text-6xl text-stone-800 justify-center mt-10 mb-10">
       <GrDocker />
       <TbBrandAnsible />
       <FaAws />
@@ -141,7 +141,7 @@ export default function Home() {
 
   return (
     <motion.div 
-      className={`${dark ? 'bg-[#141414]' : 'bg-white'} transition-all duration-300 h-screen`}
+      className={`${dark ? 'bg-[#141414]' : 'bg-white'} transition-all duration-300 h-max`}
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       transition={{ duration: 1 }}
