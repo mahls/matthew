@@ -4,10 +4,30 @@ import { RxMoon, RxSun } from "react-icons/rx";
 import { VscGithub } from "react-icons/vsc";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { GrDocker } from "react-icons/gr";
+import { TbBrandAnsible } from "react-icons/tb";
+import { FaAws, FaPython, FaReact } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
 
+// Define prop types
+interface NavProps {
+  dark: boolean;
+  setDark: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface HeroProps {
+  dark: boolean;
+}
+
+interface CardProps {
+  title: string;
+  info: string;
+  dark: boolean;
+  color: string;
+}
 
 // NAVIGATION BAR
-const Nav = ({ dark, setDark }: any) => {
+const Nav = ({ dark, setDark }: NavProps) => {
   const toggleDarkMode = () => {
     setDark(prev => !prev);
   };
@@ -50,7 +70,7 @@ const Nav = ({ dark, setDark }: any) => {
 }
 
 // HERO SECTION
-const Hero = ({ dark }: any) => {
+const Hero = ({ dark }: HeroProps) => {
   return (
     <motion.div 
       className={`flex flex-col justify-center items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-200' : 'text-stone-700'}`}
@@ -80,10 +100,11 @@ const projects = [
 ];
 
 // Card Component
-const Card = ({ title, color }: { title: string; info: string; dark: boolean; color: string; }) => {
+const Card = ({ title, info, dark, color }: CardProps) => {
   return (
     <div>
-    <h3 className={`${color}  px-5  text-6xl md:text-8xl font-bold`}>{title}</h3>
+      <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold`}>{title}</h3>
+
     </div>
   );
 }
@@ -93,33 +114,26 @@ const Projects = ({ dark }: { dark: boolean }) => {
   return (
     <div className="flex flex-wrap justify-center pt-10">
       <div>
-      {projects.map(project => (
-        <Card key={project.title} title={project.title} info={project.info} dark={dark} color={project.color} />
-      ))}
+        {projects.map(project => (
+          <Card key={project.title} title={project.title} info={project.info} dark={dark} color={project.color} />
+        ))}
       </div>
     </div>
   );
 }
 
-import { GrDocker } from "react-icons/gr";
-import { TbBrandAnsible } from "react-icons/tb";
-import { FaAws } from "react-icons/fa";
-import { FaPython } from "react-icons/fa";
-import { FaReact } from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
-
-//Footer Component
+// Footer Component
 const Footer = () => {
-    return (
-      <div className="flex text-6xl  text-stone-800 justify-center mt-10">
-      <GrDocker/>
-      <TbBrandAnsible/>
-      <FaAws/>
-      <FaPython/>
-      <FaReact/>
-      <SiTypescript className="pl-1"/>
-      </div>
-    ) 
+  return (
+    <div className="flex text-6xl text-stone-800 justify-center mt-10">
+      <GrDocker />
+      <TbBrandAnsible />
+      <FaAws />
+      <FaPython />
+      <FaReact />
+      <SiTypescript className="pl-1" />
+    </div>
+  ); 
 }
 
 // MAIN / APP
@@ -136,7 +150,7 @@ export default function Home() {
       <Nav dark={dark} setDark={setDark} />
       <Hero dark={dark} />
       <Projects dark={dark} />
-      <Footer/>
+      <Footer />
     </motion.div>
   );
 }
