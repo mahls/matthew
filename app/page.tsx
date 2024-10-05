@@ -21,7 +21,6 @@ interface HeroProps {
 
 interface CardProps {
   title: string;
-  info: string;
   dark: boolean;
   color: string;
 }
