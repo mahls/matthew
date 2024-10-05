@@ -99,7 +99,7 @@ const projects = [
 ];
 
 // Card Component
-const Card = ({ title, info, dark, color }: CardProps) => {
+const Card = ({ title, color }: CardProps) => {
   return (
     <div>
       <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold`}>{title}</h3>
@@ -114,7 +114,7 @@ const Projects = ({ dark }: { dark: boolean }) => {
     <div className="flex flex-wrap justify-center pt-10">
       <div>
         {projects.map(project => (
-          <Card key={project.title} title={project.title} info={project.info} dark={dark} color={project.color} />
+          <Card key={project.title} title={project.title} dark={dark} color={project.color} />
         ))}
       </div>
     </div>
