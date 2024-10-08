@@ -11,7 +11,6 @@ import { SiTypescript } from "react-icons/si";
 import Link from 'next/link';
 import { FaLaravel } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor"
-import { HiMiniDevicePhoneMobile } from "react-icons/hi2";
 
 // Define prop types
 interface NavProps {
