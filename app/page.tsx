@@ -2,7 +2,7 @@
 
 import { RxMoon, RxSun } from "react-icons/rx";
 import { VscGithub } from "react-icons/vsc";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { useState } from "react";
 import { GrDocker } from "react-icons/gr";
 import { TbBrandAnsible } from "react-icons/tb";
@@ -177,41 +177,61 @@ const Projects = ({ dark }: { dark: boolean }) => {
   );
 }
 
-// Footer Component
-const Footer = () => {
-  return (
-  <>
-    <div className="font-mono  text-stone-800  flex  justify-center align-center items-center mb-5 mt-5">SINCE 2019</div>
-    <div className="flex flex-wrap text-4xl sm:text-6xl text-stone-800 justify-center mt-10 pb-10">
-      <div className="m-2">
-        <GrDocker />
-      </div>
-      <div className="m-2">
-        <TbBrandAnsible />
-      </div>
-      <div className="m-2">
-        <FaAws />
-      </div>
-      <div className="m-2">
-        <FaPython />
-      </div>
-      <div className="m-2">
-        <FaReact />
-      </div>
-      <div className="m-2">
-        <SiTypescript />
-      </div>
-      <div className="m-2">
-        <FaLaravel />
-      </div>
-      <div className="m-2">
-        <SiVuetify/>
-      </div>
-    </div>
-  </>
-  );
-}
 
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2, // Adjust this for the stagger delay between icons
+    },
+  },
+};
+
+const iconVariants = {
+  initial: { y: 0 },
+  animate: {
+    y: -5, // Adjust this value to set how high the icon moves
+    transition: {
+      repeat: Infinity,
+      repeatType: 'reverse',
+      duration: 5, // Increase duration for a smoother effect
+      ease: "easeInOut",
+    },
+  },
+};
+
+const Footer = () => {
+  const icons = [
+    <GrDocker />,
+    <TbBrandAnsible />,
+    <FaAws />,
+    <FaPython />,
+    <FaReact />,
+    <SiTypescript />,
+    <FaLaravel />,
+    <SiVuetify />,
+  ];
+
+  return (
+    <>
+      <div className="font-mono text-stone-800 flex justify-center items-center mb-5 mt-5">SINCE 2019</div>
+      <motion.div
+        className="flex flex-wrap text-4xl sm:text-6xl text-stone-800 justify-center mt-10 pb-10"
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+      >
+        {icons.map((icon, index) => (
+          <motion.div
+            key={index}
+            style={{ margin: '0.5rem' }}
+          >
+            {icon}
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
+  );
+};
 
 // MAIN / APP
 export default function Home() {
