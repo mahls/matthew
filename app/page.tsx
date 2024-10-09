@@ -91,6 +91,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
 // HERO SECTION
 const Hero = ({ dark }: HeroProps) => {
   return (
+    <>
     <motion.div 
       className={`flex flex-col justify-center items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-300' : 'text-stone-800'}`}
       initial={{ opacity: 0 }} 
@@ -106,15 +107,28 @@ const Hero = ({ dark }: HeroProps) => {
       <div className="mt-5 text-sm px-4 sm:px-12 md:px-56 align-center">
         Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions!
       </div>
+      
+      
 
-      <div className="mt-5 text-sm px-4 sm:px-12 md:px-56 align-center font-bold">
-        matthols24@gmail.com
-      </div>
 
-      <div className="text-sm px-4 sm:px-12 md:px-56 align-center font-bold">
-        0412262967
-      </div>
     </motion.div>
+
+    <div className={`flex mt-5 px-5 sm:px-12 md:px-56 justify-between ${dark ? 'text-blue-300' : 'text-blue-700'}`}> 
+        <div>
+        <p className="font-mono bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">matthols24@gmail.com</p>
+
+
+        </div>
+        <div>
+          <p className="font-mono bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">0412262967</p>
+        </div>
+    </div>
+
+
+
+
+
+    </>
   );
 };
 
@@ -124,7 +138,7 @@ const projects = [
   { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-violet-400', link: 'https://github.com/mahls/galaxy-defence/' },
   { title: 'Farming 🌿', info: 'Grow crops', color: 'text-violet-500', link: 'https://github.com/mahls/farming/' },
   { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-violet-700', link: 'https://github.com/mahls/ws2812/' },
-  { title: 'Snake 🍏', info: 'Control WS2812 LEDs', color: 'text-violet-700', link: 'https://github.com/mahls/snake/' },
+  { title: 'Snake 🍏', info: 'Control WS2812 LEDs', color: 'text-violet-400', link: 'https://github.com/mahls/snake/' },
   { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-violet-700', link: 'https://github.com/mahls/bezier-curve/' },
 
 ];
