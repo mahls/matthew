@@ -11,6 +11,7 @@ import { SiTypescript } from "react-icons/si";
 import Link from 'next/link';
 import { FaLaravel } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor"
+import { SiVuetify } from "react-icons/si";
 
 // Define prop types
 interface NavProps {
@@ -104,7 +105,7 @@ const Hero = ({ dark }: HeroProps) => {
         <div className="font-serif drop-shadow-lg text-wrap px-4">DevOps</div>
       </div>
 
-      <div className="mt-5 text-sm px-4 sm:px-12 md:px-56 align-center">
+      <div className="mt-5 text-sm px-4 sm:px-12 md:px-56 align-center font-mono">
         Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions!
       </div>
       
@@ -120,7 +121,7 @@ const Hero = ({ dark }: HeroProps) => {
 
         </div>
         <div>
-          <p className="font-mono bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">0412262967</p>
+          <p className="font-mono  bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">0412262967</p>
         </div>
     </div>
 
@@ -143,16 +144,22 @@ const projects = [
 
 ];
 
-// Card Component
 const Card = ({ title, color, link }: CardProps) => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }} // Initial state for fade-in
+      animate={{ opacity: 1, scale: 1 }} // Final state for fade-in
+      transition={{ duration: 0.2 }} // Duration of the fade-in effect
+      whileHover={{ scale: 1.1 }} // Scale effect on hover
+    >
       <Link href={link} passHref>
-        <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold cursor-pointer`}>{title}</h3>
+        <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold cursor-pointer `}>
+          {title}
+        </h3>
       </Link>
-    </div>
+    </motion.div>
   );
-}
+};
 
 // Projects Component
 const Projects = ({ dark }: { dark: boolean }) => {
@@ -161,7 +168,7 @@ const Projects = ({ dark }: { dark: boolean }) => {
       <motion.div
             initial={{ opacity: 0, }} 
             animate={{ opacity: 1, }} 
-            transition={{ duration: 0.5 }}>
+            transition={{ duration: 0.75 }}>
         {projects.map(project => (
           <Card key={project.title} title={project.title} dark={dark} color={project.color} link={project.link} />
         ))}
@@ -173,6 +180,8 @@ const Projects = ({ dark }: { dark: boolean }) => {
 // Footer Component
 const Footer = () => {
   return (
+  <>
+    <div className="font-mono  text-stone-800  flex  justify-center align-center items-center mb-5 mt-5">SINCE 2019</div>
     <div className="flex flex-wrap text-4xl sm:text-6xl text-stone-800 justify-center mt-10 pb-10">
       <div className="m-2">
         <GrDocker />
@@ -195,7 +204,11 @@ const Footer = () => {
       <div className="m-2">
         <FaLaravel />
       </div>
+      <div className="m-2">
+        <SiVuetify/>
+      </div>
     </div>
+  </>
   );
 }
 
