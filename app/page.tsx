@@ -181,27 +181,6 @@ const Projects = ({ dark }: { dark: boolean }) => {
 }
 
 
-const containerVariants = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2, // Adjust this for the stagger delay between icons
-    },
-  },
-};
-
-const iconVariants = {
-  initial: { y: 0 },
-  animate: {
-    y: -5, // Adjust this value to set how high the icon moves
-    transition: {
-      repeat: Infinity,
-      repeatType: 'reverse',
-      duration: 5, // Increase duration for a smoother effect
-      ease: "easeInOut",
-    },
-  },
-};
-
 const Footer = () => {
   const icons = [
     <GrDocker />,
