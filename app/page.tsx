@@ -41,7 +41,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
     <>
       <div className="bg-gradient-to-r from-red-500 via-red-500 to-pink-500 h-0.5"></div>
       <motion.div 
-        className={`px-4 sm:px-6 py-4 m-2 flex justify-between isolate ${dark ? 'border-gray-700 bg-gradient-to-b from-stone-950 to-[#141414] text-stone-200' : 'text-stone-700'}`}
+        className={`px-4 sm:px-6 py-4 m-2 flex justify-between isolate ${dark ? 'border-gray-700 text-stone-200' : 'text-stone-700'}`}
         initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
