@@ -2,7 +2,7 @@
 
 import { RxMoon, RxSun } from "react-icons/rx";
 import { VscGithub } from "react-icons/vsc";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { GrDocker } from "react-icons/gr";
 import { TbBrandAnsible } from "react-icons/tb";
