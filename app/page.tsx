@@ -204,18 +204,6 @@ const Footer = () => {
   );
 };
 
-
-
-const BlogPosts = () => {
-
-
-  return (
-    <>
-
-    </>
-  );
-};
-
 // MAIN / APP
 export default function Home() {
   const [dark, setDark] = useState(false);  // Initialize state to false for light mode
