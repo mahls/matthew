@@ -219,9 +219,6 @@ const Footer = () => {
       <div className="font-mono text-stone-800 flex justify-center items-center mb-5 mt-5">SINCE 2019</div>
       <motion.div
         className="flex flex-wrap text-4xl sm:text-6xl text-stone-800 justify-center mt-10 pb-10"
-        variants={containerVariants}
-        initial="initial"
-        animate="animate"
       >
         {icons.map((icon, index) => (
           <motion.div
