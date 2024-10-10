@@ -31,6 +31,7 @@ interface CardProps {
 }
 
 // NAVIGATION BAR
+//bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
 const Nav = ({ dark, setDark }: NavProps) => {
   const toggleDarkMode = () => {
     setDark(prev => !prev);
@@ -38,14 +39,14 @@ const Nav = ({ dark, setDark }: NavProps) => {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-1"></div>
+      <div className="bg-gradient-to-r from-red-500 via-red-500 to-pink-500 h-0.5"></div>
       <motion.div 
         className={`px-4 sm:px-6 py-4 m-2 flex justify-between isolate ${dark ? 'border-gray-700 bg-gradient-to-b from-stone-950 to-[#141414] text-stone-200' : 'text-stone-700'}`}
         initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
       >
-        <div className="text-2xl tracking-wider font-serif">Matthew Holmes</div>
+        <div className="text-2xl tracking-wider font-serif text-stone-400">Matthew Holmes</div>
         
         <div className="flex">
           <motion.div 
@@ -54,7 +55,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
             transition={{ type: "spring", stiffness: 300 }}
           >
           <Link href="https://github.com/mahls" passHref>
-            <VscGithub className={`cursor-pointer mt-2 ${dark ? 'text-white' : 'text-gray-800'}`} />
+            <VscGithub className={`cursor-pointer mt-2 ${dark ? 'text-stone-400' : 'text-gray-800'}`} />
           </Link>
           </motion.div>
           
@@ -68,7 +69,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
             onClick={toggleDarkMode}
           >
             {dark ? (
-              <RxSun className="cursor-pointer text-pink-300 mt-2" />
+              <RxSun className="cursor-pointer text-stone-500 mt-2" />
             ) : (
               <RxMoon className="cursor-pointer text-gray-800 mt-2" />
             )}
@@ -100,16 +101,16 @@ const Hero = ({ dark }: HeroProps) => {
       transition={{ duration: 0.5 }}
     >
       <div className="sm:flex">
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">Full Stack</div>
-        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl drop-shadow-lg"> · </div>
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">Design</div>
-        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl drop-shadow-lg"> · </div>
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">DevOps</div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">Full Stack</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-400 drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">Design</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-400 drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">DevOps</div>
 
       </div>
 
-      <div className="mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono">
-        Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions!
+      <div className="mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono text-stone-400">
+        Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions.
       </div>
       
       
@@ -119,12 +120,12 @@ const Hero = ({ dark }: HeroProps) => {
 
     <div className={`flex mt-5 px-5 sm:px-12 md:px-56 justify-between ${dark ? 'text-blue-300' : 'text-blue-700'}`}> 
         <div>
-        <p className="font-mono bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">matthols24@gmail.com</p>
+        <p className="font-mono  bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.stone.600),theme(colors.stone.800),theme(colors.stone.400),theme(colors.stone.600),theme(colors.stone.500),theme(colors.stone.700),theme(colors.stone.400))] bg-[length:200%_auto] animate-gradient">matthols24@gmail.com</p>
 
 
         </div>
         <div>
-          <p className="font-mono  bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.violet.400),theme(colors.fuchsia.400),theme(colors.violet.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">0412262967</p>
+          <p className="font-mono  bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.stone.600),theme(colors.stone.800),theme(colors.stone.400),theme(colors.stone.600),theme(colors.stone.500),theme(colors.stone.700),theme(colors.stone.400))] bg-[length:200%_auto] animate-gradient">0412262967</p>
         </div>
     </div>
 
@@ -138,12 +139,12 @@ const Hero = ({ dark }: HeroProps) => {
 
 
 const projects = [
-  { title: 'Hiragana 🌸', info: 'Learn Japanese Hiragana', color: 'text-violet-700', link: 'https://hiragana-game.vercel.app' },
-  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-violet-400', link: 'https://github.com/mahls/galaxy-defence/' },
-  { title: 'Farming 🌿', info: 'Grow crops', color: 'text-violet-500', link: 'https://github.com/mahls/farming/' },
-  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-violet-700', link: 'https://github.com/mahls/ws2812/' },
-  { title: 'Snake 🍏', info: 'Control WS2812 LEDs', color: 'text-violet-400', link: 'https://github.com/mahls/snake/' },
-  { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-violet-700', link: 'https://github.com/mahls/bezier-curve/' },
+  { title: 'Hiragana ', info: 'Learn Japanese Hiragana', color: 'text-stone-500', link: 'https://hiragana-game.vercel.app' },
+  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-stone-700', link: 'https://github.com/mahls/galaxy-defence/' },
+  { title: 'Farming ', info: 'Grow crops', color: 'text-stone-700', link: 'https://github.com/mahls/farming/' },
+  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-stone-500', link: 'https://github.com/mahls/ws2812/' },
+  { title: 'Snake ', info: 'Control WS2812 LEDs', color: 'text-stone-700', link: 'https://github.com/mahls/snake/' },
+  { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-stone-500', link: 'https://github.com/mahls/bezier-curve/' },
 
 ];
 
@@ -156,7 +157,7 @@ const Card = ({ title, color, link }: CardProps) => {
       whileHover={{ scale: 1.1 }} // Scale effect on hover
     >
       <Link href={link} passHref>
-        <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold cursor-pointer `}>
+        <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold cursor-pointer hover:text-red-500 transition`}>
           {title}
         </h3>
       </Link>
@@ -182,32 +183,35 @@ const Projects = ({ dark }: { dark: boolean }) => {
 
 
 const Footer = () => {
-  const icons = [
-    <GrDocker />,
-    <TbBrandAnsible />,
-    <FaAws />,
-    <FaPython />,
-    <FaReact />,
-    <SiTypescript />,
-    <FaLaravel />,
-    <SiVuetify />,
-  ];
+
 
   return (
     <>
-      <div className="font-mono text-stone-800 flex justify-center items-center mb-5 mt-5">SINCE 2019</div>
+      <div className="font-mono text-stone-800 flex justify-center items-center mb-5 mt-10">SINCE 2019</div>
       <motion.div
         className="flex flex-wrap text-4xl sm:text-6xl text-stone-800 justify-center mt-10 pb-10"
       >
-        {icons.map((icon, index) => (
-          <motion.div
-            key={index}
-            style={{ margin: '0.5rem' }}
-          >
-            {icon}
-          </motion.div>
-        ))}
+        <GrDocker className="m-0.5" />
+        <TbBrandAnsible className="m-0.5" />
+        <FaAws className="m-0.5" />
+        <FaPython  className="m-0.5"/>
+        <FaReact className="m-0.5" />
+        <SiTypescript className="m-0.5"/>
+        <FaLaravel className="m-0.5"/>
+        <SiVuetify className="m-0.5"/>
       </motion.div>
+    </>
+  );
+};
+
+
+
+const BlogPosts = () => {
+
+
+  return (
+    <>
+
     </>
   );
 };
