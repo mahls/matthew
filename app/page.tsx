@@ -94,18 +94,21 @@ const Hero = ({ dark }: HeroProps) => {
   return (
     <>
     <motion.div 
-      className={`flex flex-col justify-center items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-300' : 'text-stone-800'}`}
+      className={`flex flex-col sm:justify-center sm:items-center pt-10 sm:pt-20 text-4xl ${dark ? 'text-stone-300' : 'text-stone-800'}`}
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       transition={{ duration: 0.5 }}
     >
       <div className="sm:flex">
-        <div className="font-serif drop-shadow-lg text-wrap px-4">Full Stack | Design</div>
-        <div className="hidden sm:flex font-serif drop-shadow-lg"> | </div>
-        <div className="font-serif drop-shadow-lg text-wrap px-4">DevOps</div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">Full Stack</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">Design</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-wrap px-4">DevOps</div>
+
       </div>
 
-      <div className="mt-5 text-sm px-4 sm:px-12 md:px-56 align-center font-mono">
+      <div className="mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono">
         Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions!
       </div>
       
