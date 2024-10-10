@@ -46,7 +46,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
       >
-        <div className="text-2xl tracking-wider font-serif text-stone-400">Matthew Holmes</div>
+        <div className={`text-2xl tracking-wider font-serif ${dark ? 'text-stone-300' : 'text-stone-600' } `}>Matthew Holmes</div>
         
         <div className="flex">
           <motion.div 
@@ -101,15 +101,15 @@ const Hero = ({ dark }: HeroProps) => {
       transition={{ duration: 0.5 }}
     >
       <div className="sm:flex">
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">Full Stack</div>
-        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-400 drop-shadow-lg"> · </div>
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">Design</div>
-        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-400 drop-shadow-lg"> · </div>
-        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-400 text-wrap px-4">DevOps</div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-500 text-wrap px-4">Full Stack</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-500 drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-500 text-wrap px-4">Design</div>
+        <div className="hidden sm:flex font-serif text-8xl sm:text-5xl text-stone-500 drop-shadow-lg"> · </div>
+        <div className="font-serif drop-shadow-lg text-8xl sm:text-5xl text-stone-500 text-wrap px-4">DevOps</div>
 
       </div>
 
-      <div className="mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono text-stone-400">
+      <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono text-stone-400`}>
         Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions.
       </div>
       
