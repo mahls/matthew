@@ -144,7 +144,7 @@ const projects = [
   { title: 'Farming ', info: 'Select and grow crops AFK type game', color: 'text-stone-500', link: 'https://github.com/mahls/farming/' },
   { title: 'LED Controller', info: 'Control WS2812 LEDs with Micro-Python', color: 'text-stone-400', link: 'https://github.com/mahls/ws2812/' },
   { title: 'Snake ', info: 'Classic Snake game', color: 'text-stone-300', link: 'https://github.com/mahls/snake/' },
-  { title: 'Bezier', info: 'Visualise a Bezier Curve programtically in C++', color: 'text-stone-200', link: 'https://github.com/mahls/bezier-curve/' },
+  { title: 'Bezier', info: 'Visualise a Bezier Curve programtically', color: 'text-stone-200', link: 'https://github.com/mahls/bezier-curve/' },
 
 ];
 
