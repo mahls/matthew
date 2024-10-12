@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { FaLaravel } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor"
 import { SiVuetify } from "react-icons/si";
+import { Session, Chatbox } from "@talkjs/react";
 
 // Define prop types
 interface NavProps {
@@ -109,8 +110,8 @@ const Hero = ({ dark }: HeroProps) => {
 
       </div>
 
-      <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-86 md:px-56 align-center font-mono text-stone-400`}>
-        Welcome to my portfolio! I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions.
+      <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-2/3 md:px-56 lg:mx-2/3 align-center font-mono text-stone-400`}>
+        Welcome to my portfolio. I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions.
       </div>
       
       
@@ -139,12 +140,13 @@ const Hero = ({ dark }: HeroProps) => {
 
 
 const projects = [
-  { title: 'Hiragana ', info: 'Learn Japanese Hiragana', color: 'text-stone-500', link: 'https://hiragana-game.vercel.app' },
-  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-stone-700', link: 'https://github.com/mahls/galaxy-defence/' },
-  { title: 'Farming ', info: 'Grow crops', color: 'text-stone-700', link: 'https://github.com/mahls/farming/' },
-  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-stone-500', link: 'https://github.com/mahls/ws2812/' },
-  { title: 'Snake ', info: 'Control WS2812 LEDs', color: 'text-stone-700', link: 'https://github.com/mahls/snake/' },
-  { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-stone-500', link: 'https://github.com/mahls/bezier-curve/' },
+  { title: 'Hiragana [ Live ] ', info: 'Learn Japanese Hiragana', color: 'text-stone-800', link: 'https://hiragana-game.vercel.app' },
+  { title: 'Echo [ Live ]', info: 'Play Space Invaders', color: 'text-stone-700', link: 'https://echo-k4nn.vercel.app' },
+  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-stone-600', link: 'https://github.com/mahls/galaxy-defence/' },
+  { title: 'Farming ', info: 'Grow crops', color: 'text-stone-500', link: 'https://github.com/mahls/farming/' },
+  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-stone-400', link: 'https://github.com/mahls/ws2812/' },
+  { title: 'Snake ', info: 'Control WS2812 LEDs', color: 'text-stone-300', link: 'https://github.com/mahls/snake/' },
+  { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-stone-200', link: 'https://github.com/mahls/bezier-curve/' },
 
 ];
 
