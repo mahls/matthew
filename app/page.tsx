@@ -55,7 +55,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
             transition={{ type: "spring", stiffness: 300 }}
           >
           <Link href="https://github.com/mahls" passHref>
-            <VscGithub className={`cursor-pointer mt-2 ${dark ? 'text-stone-400' : 'text-gray-800'}`} />
+            <VscGithub className={`sm:text-2xl cursor-pointer mt-2 ${dark ? 'text-stone-400' : 'text-gray-800'}`} />
           </Link>
           </motion.div>
           
@@ -69,9 +69,9 @@ const Nav = ({ dark, setDark }: NavProps) => {
             onClick={toggleDarkMode}
           >
             {dark ? (
-              <RxSun className="cursor-pointer text-stone-500 mt-2" />
+              <RxSun className="sm:text-2xl cursor-pointer text-stone-500 mt-2" />
             ) : (
-              <RxMoon className="cursor-pointer text-gray-800 mt-2" />
+              <RxMoon className="sm:text-2xl cursor-pointer text-gray-800 mt-2" />
             )}
           </motion.div>
 
@@ -81,7 +81,7 @@ const Nav = ({ dark, setDark }: NavProps) => {
   whileHover={{ scale: 1.2 }}
   transition={{ type: "spring", stiffness: 300 }}
 >
-  <img className="h-8 rounded-full" src="https://cdn.pixabay.com/photo/2023/04/21/10/25/ai-generated-7941605_1280.jpg" alt="Cute Monster" />
+  <img className="h-8 sm:h-10 rounded-full" src="https://cdn.pixabay.com/photo/2023/04/21/10/25/ai-generated-7941605_1280.jpg" alt="Cute Monster" />
 </motion.div>
 
         </div>
@@ -110,7 +110,7 @@ const Hero = ({ dark }: HeroProps) => {
       </div>
 
       <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-2/3 md:px-56 lg:mx-2/3 align-center font-mono text-stone-400`}>
-        Welcome to my portfolio. I’m a Fullstack Developer and DevOps Engineer passionate about building robust web applications and streamlining development workflows. With expertise in technologies like React, Node.js, and Python, I create seamless user experiences while ensuring solid back-end architecture. I embrace DevOps practices, utilizing CI/CD, cloud platforms, Docker, and Kubernetes to deploy applications efficiently. Combining my technical skills with a keen eye for design, I prioritize aesthetics and usability to enhance user engagement. Explore my projects to see how I tackle complex challenges and deliver innovative solutions, and feel free to reach out for collaboration or discussions.
+      Welcome to my portfolio. I’m a Fullstack Developer and DevOps Engineer dedicated to building robust web applications and optimizing workflows. Proficient in React, Node.js, and Python, I ensure seamless user experiences and efficient deployments using CI/CD and cloud technologies. Explore my projects to see my innovative solutions, and feel free to reach out for collaboration.
       </div>
       
       
@@ -208,6 +208,7 @@ const Footer = () => {
 // MAIN / APP
 export default function Home() {
   const [dark, setDark] = useState(false);  // Initialize state to false for light mode
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Set initial state for desktop
 
   return (
     <motion.div 
@@ -216,13 +217,16 @@ export default function Home() {
       animate={{ opacity: 1 }} 
       transition={{ duration: 1 }}
     >
-       <AnimatedCursor
-       innerSize={8}
-       outerSize={8}
-       color='111,111,111'
-       outerAlpha={0.2}
-       innerScale={0.7}
-       outerScale={5} />
+     {isDesktop && ( // Render AnimatedCursor only for desktop
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={8}
+          color='111,111,111'
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5} 
+        />
+      )}
 
       <Nav dark={dark} setDark={setDark} />
       <Hero dark={dark} />
