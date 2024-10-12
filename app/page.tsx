@@ -12,7 +12,6 @@ import Link from 'next/link';
 import { FaLaravel } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor"
 import { SiVuetify } from "react-icons/si";
-import { Session, Chatbox } from "@talkjs/react";
 
 // Define prop types
 interface NavProps {
@@ -140,7 +139,7 @@ const Hero = ({ dark }: HeroProps) => {
 
 
 const projects = [
-  { title: 'Hiragana [ Live ] ', info: 'Learn Japanese Hiragana', color: 'text-stone-800', link: 'https://hiragana-game.vercel.app' },
+  { title: 'Hiragana [ Live ]', info: 'Learn Japanese Hiragana', color: 'text-stone-800', link: 'https://hiragana-game.vercel.app' },
   { title: 'Echo [ Live ]', info: 'Play Space Invaders', color: 'text-stone-700', link: 'https://echo-k4nn.vercel.app' },
   { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-stone-600', link: 'https://github.com/mahls/galaxy-defence/' },
   { title: 'Farming ', info: 'Grow crops', color: 'text-stone-500', link: 'https://github.com/mahls/farming/' },
