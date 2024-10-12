@@ -10,8 +10,8 @@ import { FaAws, FaPython, FaReact } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import Link from 'next/link';
 import { FaLaravel } from "react-icons/fa";
-import AnimatedCursor from "react-animated-cursor"
 import { SiVuetify } from "react-icons/si";
+
 
 // Define prop types
 interface NavProps {
@@ -25,6 +25,7 @@ interface HeroProps {
 
 interface CardProps {
   title: string;
+  info: string;
   dark: boolean;
   color: string;
   link: string;
@@ -58,8 +59,6 @@ const Nav = ({ dark, setDark }: NavProps) => {
             <VscGithub className={`sm:text-2xl cursor-pointer mt-2 ${dark ? 'text-stone-400' : 'text-gray-800'}`} />
           </Link>
           </motion.div>
-          
-          
 
 
           <motion.div 
@@ -109,7 +108,7 @@ const Hero = ({ dark }: HeroProps) => {
 
       </div>
 
-      <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-2/3 md:px-56 lg:mx-2/3 align-center font-mono text-stone-400`}>
+      <div className={`mt-10 text-sm px-4 sm:px-12 lg:px-2/3 md:px-56 lg:mx-2/3 align-center font-mono text-stone-500`}>
       Welcome to my portfolio. I’m a Fullstack Developer and DevOps Engineer dedicated to building robust web applications and optimizing workflows. Proficient in React, Node.js, and Python, I ensure seamless user experiences and efficient deployments using CI/CD and cloud technologies. Explore my projects to see my innovative solutions, and feel free to reach out for collaboration.
       </div>
       
@@ -139,17 +138,17 @@ const Hero = ({ dark }: HeroProps) => {
 
 
 const projects = [
-  { title: 'Hiragana [ Live ]', info: 'Learn Japanese Hiragana', color: 'text-stone-800', link: 'https://hiragana-game.vercel.app' },
-  { title: 'Echo [ Live ]', info: 'Play Space Invaders', color: 'text-stone-700', link: 'https://echo-k4nn.vercel.app' },
-  { title: 'Space Invaders', info: 'Play Space Invaders', color: 'text-stone-600', link: 'https://github.com/mahls/galaxy-defence/' },
-  { title: 'Farming ', info: 'Grow crops', color: 'text-stone-500', link: 'https://github.com/mahls/farming/' },
-  { title: 'LED Controller', info: 'Control WS2812 LEDs', color: 'text-stone-400', link: 'https://github.com/mahls/ws2812/' },
-  { title: 'Snake ', info: 'Control WS2812 LEDs', color: 'text-stone-300', link: 'https://github.com/mahls/snake/' },
-  { title: 'Bezier', info: 'Control WS2812 LEDs', color: 'text-stone-200', link: 'https://github.com/mahls/bezier-curve/' },
+  { title: 'Hiragana [ Live ]', info: 'Learn Japanese Hiragana through flash cards', color: 'text-stone-800', link: 'https://hiragana-game.vercel.app' },
+  { title: 'Echo [ Live ]', info: 'Twitter clone', color: 'text-stone-700', link: 'https://echo-k4nn.vercel.app' },
+  { title: 'Galaxy Defence', info: 'Space Invaders type game', color: 'text-stone-600', link: 'https://github.com/mahls/galaxy-defence/' },
+  { title: 'Farming ', info: 'Select and grow crops AFK type game', color: 'text-stone-500', link: 'https://github.com/mahls/farming/' },
+  { title: 'LED Controller', info: 'Control WS2812 LEDs with Micro-Python', color: 'text-stone-400', link: 'https://github.com/mahls/ws2812/' },
+  { title: 'Snake ', info: 'Classic Snake game', color: 'text-stone-300', link: 'https://github.com/mahls/snake/' },
+  { title: 'Bezier', info: 'Visualise a Bezier Curve programtically in C++', color: 'text-stone-200', link: 'https://github.com/mahls/bezier-curve/' },
 
 ];
 
-const Card = ({ title, color, link }: CardProps) => {
+const Card = ({ title, color, link, info }: CardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }} // Initial state for fade-in
@@ -158,9 +157,12 @@ const Card = ({ title, color, link }: CardProps) => {
       whileHover={{ scale: 1.1 }} // Scale effect on hover
     >
       <Link href={link} passHref>
-        <h3 className={`${color} px-5 text-6xl md:text-8xl font-bold cursor-pointer hover:text-red-500 transition`}>
+        <h3 className={`${color} px-5 text-6xl md:text-8xl mt-4 font-bold cursor-pointer hover:text-red-500 transition`}>
           {title}
         </h3>
+        <div className="px-5 font-mono text-stone-500 mt-4">
+          {info}
+        </div>
       </Link>
     </motion.div>
   );
@@ -175,7 +177,7 @@ const Projects = ({ dark }: { dark: boolean }) => {
             animate={{ opacity: 1, }} 
             transition={{ duration: 0.75 }}>
         {projects.map(project => (
-          <Card key={project.title} title={project.title} dark={dark} color={project.color} link={project.link} />
+          <Card info={project.info} key={project.title} title={project.title} dark={dark} color={project.color} link={project.link} />
         ))}
       </motion.div>
     </div>
@@ -208,7 +210,6 @@ const Footer = () => {
 // MAIN / APP
 export default function Home() {
   const [dark, setDark] = useState(false);  // Initialize state to false for light mode
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Set initial state for desktop
 
   return (
     <motion.div 
@@ -217,16 +218,6 @@ export default function Home() {
       animate={{ opacity: 1 }} 
       transition={{ duration: 1 }}
     >
-     {isDesktop && ( // Render AnimatedCursor only for desktop
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={8}
-          color='111,111,111'
-          outerAlpha={0.2}
-          innerScale={0.7}
-          outerScale={5} 
-        />
-      )}
 
       <Nav dark={dark} setDark={setDark} />
       <Hero dark={dark} />
